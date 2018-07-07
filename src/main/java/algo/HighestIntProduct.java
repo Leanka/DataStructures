@@ -1,8 +1,14 @@
 package algo;
 
 public class HighestIntProduct {
+    private void checkNumbersCount(int [] numbers, int validCount){
+        if(numbers.length < validCount){
+            throw new IllegalArgumentException("Numbers count cannot be smaller than " + validCount);
+        }
+    }
 
     public long getMaxProduct(int [] numbers){
+        checkNumbersCount(numbers, 2);
         int maxPositive = 0;
         int nextMaxPositive= 0;
 
@@ -36,9 +42,8 @@ public class HighestIntProduct {
     }
 
     public long getMaxProductofThree(int [] numbers){
-        if(numbers.length < 3){
-            throw new IllegalArgumentException("Must contain at least 3 numbers");
-        }else if(numbers.length == 3){
+        checkNumbersCount(numbers, 3);
+        if(numbers.length == 3){
             return numbers[0] * numbers[1] * numbers[2];
         }
 
@@ -88,6 +93,7 @@ public class HighestIntProduct {
     }
 
     public long getMaxProductofThreeWithNestedLoop(int [] numbers){
+        checkNumbersCount(numbers, 3);
         Integer maxProduct = null;
 
         for(int index1 = 0; index1 < numbers.length; index1++){
