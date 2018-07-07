@@ -21,4 +21,17 @@ public class FizzBuzzTest {
         assertEquals(expectedOutput, fizzBuzz.fizBuzzBum(number));
     }
 
+    @Test
+    public void testFizzBuzzFotNegativeParameter(){
+        int number = -1;
+
+        try{
+            fizzBuzz.fizBuzzBum(number);
+            fail("Expected IllegalArgumentException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(IllegalArgumentException.class, exception.getClass());
+        }
+
+    }
+
 }
