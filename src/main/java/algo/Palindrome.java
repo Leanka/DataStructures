@@ -3,6 +3,7 @@ package algo;
 public class Palindrome {
 
     public boolean checkIfPalindrome(String text){
+        text = prepareText(text);
         boolean isPalindrome = true;
 
         for(int startIndex = 0, endIndex = text.length()-1; startIndex < endIndex; startIndex++, endIndex--){
@@ -14,4 +15,7 @@ public class Palindrome {
         return isPalindrome;
     }
 
+    private String prepareText(String text){
+        return text.replaceAll("[^A-Za-z]", "").toUpperCase();  //[\\W] includes numbers as alphabetical chars
+    }
 }
