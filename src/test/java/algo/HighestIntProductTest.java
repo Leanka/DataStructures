@@ -23,6 +23,14 @@ public class HighestIntProductTest {
     }
 
     @Test
+    public void testGettingMaxProductOfNegativeNumbers(){
+        int [] numbers = {-5, -1, -8, -7, -12};
+        long highestProduct = 96;
+
+        assertEquals(highestProduct, product.getMaxProduct(numbers));
+    }
+
+    @Test
     public void testGettingMaxProductOfPositiveAndNegativeNumbers(){
         int [] numbers = {1, 6, -9, 4, 8, -5, -8, 7, 4, 3};
         long highestProduct = 72;
