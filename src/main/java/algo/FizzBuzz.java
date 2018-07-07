@@ -4,7 +4,7 @@ public class FizzBuzz {
     private int start = 1;
 
     public String fizBuzzBum(int end){
-        if(end <= start){
+        if(end < start){
             throw new IllegalArgumentException("Given number must be greater than " + this.start);
         }
 
