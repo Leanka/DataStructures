@@ -35,4 +35,56 @@ public class HighestIntProduct {
         return maxPositiveProduct > maxNegativeProduct ? maxPositiveProduct : maxNegativeProduct;
     }
 
+    public long getMaxProductofThree(int [] numbers){
+        if(numbers.length < 3){
+            throw new IllegalArgumentException("Must contain at least 3 numbers");
+        }else if(numbers.length == 3){
+            return numbers[0] * numbers[1] * numbers[2];
+        }
+
+        int maxPositive = 0;
+        int nextMaxPositive = 0;
+        int lastMaxPositive = 0;
+
+        int maxNegative = 0;
+        int nextMaxNegative = 0;
+        int lastMaxNegative = 0;
+
+        for(int index = 0; index < numbers.length; index++){
+            int current = numbers[index];
+
+            if(current < 0){ //negative values
+                if(current < maxNegative){
+                    lastMaxNegative = nextMaxNegative;
+                    nextMaxNegative = maxNegative;
+                    maxNegative = current;
+
+                }else if(current < nextMaxNegative){
+                    lastMaxNegative = nextMaxNegative;
+                    nextMaxNegative = current;
+                }else if(current < lastMaxNegative){
+                    lastMaxNegative = current;
+                }
+
+
+            }else { //positive values
+                if(current > maxPositive){
+                    lastMaxPositive = nextMaxPositive;
+                    nextMaxPositive = maxPositive;
+                    maxPositive = current;
+                }else if(current > nextMaxPositive){
+                    lastMaxPositive = nextMaxPositive;
+                    nextMaxPositive = current;
+                }else if(current > lastMaxPositive){
+                    lastMaxPositive = current;
+                }
+            }
+        }
+
+        int maxPositiveProduct = maxPositive * nextMaxPositive * lastMaxPositive;
+        int maxNegativeProduct = maxNegative * nextMaxNegative * maxPositive;
+
+        return maxPositiveProduct > maxNegativeProduct ? maxPositiveProduct : maxNegativeProduct;
+    }
+
 }
