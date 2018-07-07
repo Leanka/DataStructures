@@ -29,6 +29,62 @@ public class HighestIntProductTest {
 
         assertEquals(highestProduct, product.getMaxProduct(numbers));
     }
-    
+
+    @Test
+    public void testGetMaxProfuctOfThree(){
+        int [] numbers = {5, 1, 8, 7, 12, 4, -3, 5};
+        long highestProduct = 672;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree3Negative(){
+        int [] numbers = {-4, -5, -9};
+        long highestProduct = -180;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree3Positive(){
+        int [] numbers = {4, 5, 9};
+        long highestProduct = 180;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree3Mixed1(){
+        int [] numbers = {4, -5, 9};
+        long highestProduct = -180;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree3Mixed2(){
+        int [] numbers = {-4, -5, 9};
+        long highestProduct = 180;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree6Positive(){
+        int [] numbers = {9, 4, 2, 3, 6, 1};
+        long highestProduct = 216;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
+
+    @Ignore
+    @Test
+    public void testGetMaxProfuctOfThree6Negative(){
+        int [] numbers = {-9, -4, -2, -3, -6, -1};
+        long highestProduct = -6;
+
+        assertEquals(highestProduct, product.getMaxProductofThree(numbers));
+    }
 
 }
