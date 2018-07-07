@@ -33,7 +33,6 @@ public class LongestWordFinderTest {
     @Test
     public void testFindingTheLongestWordInEmptyText(){
         String text = "";
-        Tuple longestWordData = new Tuple("");
 
         try{
             finder.findLongestWord(text);
