@@ -103,4 +103,12 @@ public class HighestIntProductTest {
         assertEquals(highestProduct, product.getMaxProductofThreeWithNestedLoop(numbers));
     }
 
+    @Test
+    public void testGetMaxProfuctOfThreeWithMivedValuesAndNestedLoops(){
+        int [] numbers = {-9, 4, -2, 3, 6, -1};
+        long highestProduct = 108;
+
+        assertEquals(highestProduct, product.getMaxProductofThreeWithNestedLoop(numbers));
+    }
+
 }
