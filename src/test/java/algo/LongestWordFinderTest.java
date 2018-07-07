@@ -30,4 +30,17 @@ public class LongestWordFinderTest {
         assertEquals(longestWordData, finder.findLongestWord(text));
     }
 
+    @Test
+    public void testFindingTheLongestWordInEmptyText(){
+        String text = "";
+        Tuple longestWordData = new Tuple("");
+
+        try{
+            finder.findLongestWord(text);
+            fail("Expected IllegalArgumentException, nothing was thrown");
+        }catch (Exception exception){
+            assertEquals(IllegalArgumentException.class, exception.getClass());
+        }
+    }
+
 }
