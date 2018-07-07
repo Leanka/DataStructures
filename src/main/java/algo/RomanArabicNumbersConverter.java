@@ -10,6 +10,7 @@ public class RomanArabicNumbersConverter {
 
     public RomanArabicNumbersConverter() {
         setRomanToArabic();
+        setArabicToRoman();
     }
 
     public int romanToArabic(String roman){
@@ -28,6 +29,23 @@ public class RomanArabicNumbersConverter {
         return year;
     }
 
+    public String arabicToRoman(int arabic){
+
+        StringBuilder builder = new StringBuilder();
+        Iterator <Map.Entry<String, Integer>> i = arabicToRoman.entrySet().iterator();
+        while ((arabic > 0 ) & (i.hasNext())){
+            Map.Entry<String, Integer> pair = i.next();
+            Integer currentValue = pair.getValue();
+
+            int repetitions = Math.floorDiv(arabic, currentValue);
+            for(int counter = 0; counter < repetitions; counter++){
+                builder.append(pair.getKey());
+                arabic -= currentValue;
+            }
+        }
+        return builder.toString();
+    }
+
     private void setRomanToArabic(){
           romanToArabic = new LinkedHashMap <> ();
 
@@ -40,5 +58,21 @@ public class RomanArabicNumbersConverter {
           romanToArabic.put('I', 1);
     }
 
+    private void setArabicToRoman(){
+        arabicToRoman = new LinkedHashMap <> ();
 
+        arabicToRoman.put("M", 1000);
+        arabicToRoman.put("CM", 900);
+        arabicToRoman.put("D", 500);
+        arabicToRoman.put("CD", 400);
+        arabicToRoman.put("C", 100);
+        arabicToRoman.put("XC", 90);
+        arabicToRoman.put("L", 50);
+        arabicToRoman.put("XL", 40);
+        arabicToRoman.put("X", 10);
+        arabicToRoman.put("IX", 9);
+        arabicToRoman.put("V", 5);
+        arabicToRoman.put("IV", 4);
+        arabicToRoman.put("I", 1);
+    }
 }
