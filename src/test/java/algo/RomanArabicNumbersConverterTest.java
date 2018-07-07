@@ -36,6 +36,21 @@ public class RomanArabicNumbersConverterTest {
 
         assertEquals(arabicNumber, converter.romanToArabic(romanNumber));
     }
-    
+
+    @Test
+    public void testConvertingArabicNumbersToRoman(){
+        String romanNumber = "MCDX";
+        int arabicNumber = 1410;
+
+        assertEquals(romanNumber, converter.arabicToRoman(arabicNumber));
+    }
+
+    @Test
+    public void testConvertingArabicAscendingNumbersToRoman(){
+        String romanNumber = "MDCCLXXXIX";
+        int arabicNumber = 1789;
+
+        assertEquals(romanNumber, converter.arabicToRoman(arabicNumber));
+    }
 
 }
