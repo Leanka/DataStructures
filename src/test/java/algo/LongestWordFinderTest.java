@@ -43,4 +43,14 @@ public class LongestWordFinderTest {
         }
     }
 
+    @Test
+    public void testFindingTheLongestWordInOneWordText(){
+        String text = "one";
+        Tuple longestWordData = new Tuple("one");
+
+        assertEquals(longestWordData, finder.findLongestWord(text));
+
+
+    }
+
 }
