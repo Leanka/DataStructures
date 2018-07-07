@@ -1,4 +1,4 @@
-package algo.helper;
+package algorithms.helper;
 
 import java.util.Objects;
 

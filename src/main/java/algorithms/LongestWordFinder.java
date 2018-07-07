@@ -1,6 +1,6 @@
-package algo;
+package algorithms;
 
-import algo.helper.Tuple;
+import algorithms.helper.Tuple;
 
 public class LongestWordFinder {
 

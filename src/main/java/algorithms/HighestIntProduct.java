@@ -1,4 +1,4 @@
-package algo;
+package algorithms;
 
 public class HighestIntProduct {
     private void checkNumbersCount(int [] numbers, int validCount){

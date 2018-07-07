@@ -1,4 +1,4 @@
-package algo;
+package algorithms;
 
 public class FizzBuzz {
     private int start = 1;
