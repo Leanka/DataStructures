@@ -87,4 +87,20 @@ public class HighestIntProductTest {
         assertEquals(highestProduct, product.getMaxProductofThree(numbers));
     }
 
+    @Test
+    public void testGetMaxProfuctOfThree6PositiveNestedLoops(){
+        int [] numbers = {9, 4, 2, 3, 6, 1};
+        long highestProduct = 216;
+
+        assertEquals(highestProduct, product.getMaxProductofThreeWithNestedLoop(numbers));
+    }
+
+    @Test
+    public void testGetMaxProfuctOfThree6NegativeNestedLoops(){
+        int [] numbers = {-9, -4, -2, -3, -6, -1};
+        long highestProduct = -6;
+
+        assertEquals(highestProduct, product.getMaxProductofThreeWithNestedLoop(numbers));
+    }
+
 }
