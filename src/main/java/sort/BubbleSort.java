@@ -15,5 +15,17 @@ public class BubbleSort extends AbstractSort {
         return elementsToBeSorted;
     }
 
+    public void simplestIntSort(int[] elementsToBeSorted) {
+
+        for(int index = 0; index < elementsToBeSorted.length; index++){
+            for(int i = 0; i < elementsToBeSorted.length; i++){
+                if(elementsToBeSorted[index] < elementsToBeSorted[i]){
+                    swapElements(elementsToBeSorted, index, i);
+                }
+            }
+        }
+
+    }
+
 
 }
