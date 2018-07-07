@@ -21,6 +21,12 @@ public class TitleCaseTest {
         assertEquals(titleCaseText, titleCase.titleCase(text));
     }
 
+    @Test
+    public void testTitleCasingCapitalizedText(){
+        String text = "HERE IS MY HANDLE HERE IS MY SPOUT";
+        String titleCaseText = "Here Is My Handle Here Is My Spout";
 
+        assertEquals(titleCaseText, titleCase.titleCase(text));
+    }
 
 }
