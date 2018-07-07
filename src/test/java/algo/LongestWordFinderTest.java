@@ -16,7 +16,15 @@ public class LongestWordFinderTest {
 
     @Test
     public void testFindingLongestWord(){
-        String text = "What is the average airspeed velocity of an unladen   swallow";
+        String text = "What is the average velocity of an unladen   swallow";
+        Tuple longestWordData = new Tuple("velocity");
+
+        assertEquals(longestWordData, finder.findLongestWord(text));
+    }
+
+    @Test
+    public void testFindingFirstOfTheLongestWords(){
+        String text = "What is the average airspeed velocity of an unladenn swalloww";
         Tuple longestWordData = new Tuple("airspeed");
 
         assertEquals(longestWordData, finder.findLongestWord(text));
