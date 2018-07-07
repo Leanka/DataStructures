@@ -37,9 +37,38 @@ public class FibonacciTest {
     public void testFibonnqaciWithLoopStorageFor8(){
         int number = 8;
         long fibonacciNumber = 21;
-        Map<Integer, Long> inMemory = new HashMap<>(number);
 
         assertEquals(fibonacciNumber, fibonacci.calculateWithLoop(number));
+    }
+
+    @Test
+    public void testNegativeNumbersInRecursiveCalculation(){
+        try{
+            fibonacci.calculateRecursiveSequence(-1);
+            fail("Expected NumberFormatException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(NumberFormatException.class, exception.getClass());
+        }
+    }
+
+    @Test
+    public void testNegativeNumbersInMemoizedCalculation(){
+        try{
+            fibonacci.calculateWithMap(-1, new HashMap<>());
+            fail("Expected NumberFormatException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(NumberFormatException.class, exception.getClass());
+        }
+    }
+
+    @Test
+    public void testNegativeNumbersInLoopCalculation(){
+        try{
+            fibonacci.calculateWithLoop(-1);
+            fail("Expected NumberFormatException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(NumberFormatException.class, exception.getClass());
+        }
     }
 
 }
