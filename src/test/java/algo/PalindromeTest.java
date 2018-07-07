@@ -22,6 +22,22 @@ public class PalindromeTest {
     }
 
     @Test
+    public void testIfEmptyStringIsPalindrome(){
+        String text = "";
+        boolean isPalindrome = true;
+
+        assertEquals(isPalindrome, palindrome.checkIfPalindrome(text));
+    }
+
+    @Test
+    public void testIfNonAlphabeticalStringIsPalindrome(){
+        String text = "!@#$%%^^*(67568568;']/\\,+-*/";
+        boolean isPalindrome = true;
+
+        assertEquals(isPalindrome, palindrome.checkIfPalindrome(text));
+    }
+
+    @Test
     public void testIfTextIsNotPalindrome(){
         String text = "This is not a palindrome!";
         boolean isPalindrome = false;
