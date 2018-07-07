@@ -39,6 +39,42 @@ public class HighestIntProductTest {
     }
 
     @Test
+    public void testGettingMaxProductForLessThanTwoNumbers(){
+        int [] numbers = {1};
+
+        try{
+            product.getMaxProduct(numbers);
+            fail("Expected IllegalArgumentException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(IllegalArgumentException.class, exception.getClass());
+        }
+    }
+
+    @Test
+    public void testGettingMaxProductOfThreeForLessThanThreeNumbers(){
+        int [] numbers = {1};
+
+        try{
+            product.getMaxProductofThree(numbers);
+            fail("Expected IllegalArgumentException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(IllegalArgumentException.class, exception.getClass());
+        }
+    }
+
+    @Test
+    public void testGettingMaxProductOfThreeForNestedLoopsForLessThanThreeNumbers(){
+        int [] numbers = {1};
+
+        try{
+            product.getMaxProductofThreeWithNestedLoop(numbers);
+            fail("Expected IllegalArgumentException, nothing was thrown");
+        }catch(Exception exception){
+            assertEquals(IllegalArgumentException.class, exception.getClass());
+        }
+    }
+
+    @Test
     public void testGetMaxProfuctOfThree(){
         int [] numbers = {5, 1, 8, 7, 12, 4, -3, 5};
         long highestProduct = 672;
