@@ -34,4 +34,12 @@ public class FizzBuzzTest {
 
     }
 
+    @Test
+    public void testFizzBuzzWithNoMatch(){
+        int number = 2;
+        String expectedOutput = "";
+
+        assertEquals(expectedOutput, fizzBuzz.fizBuzzBum(number));
+    }
+
 }
