@@ -33,5 +33,13 @@ public class FibonacciTest {
         assertEquals(fibonacciNumber, fibonacci.calculateWithMap(number, inMemory));
     }
 
+    @Test
+    public void testFibonnqaciWithLoopStorageFor8(){
+        int number = 8;
+        long fibonacciNumber = 21;
+        Map<Integer, Long> inMemory = new HashMap<>(number);
+
+        assertEquals(fibonacciNumber, fibonacci.calculateWithLoop(number));
+    }
 
 }
