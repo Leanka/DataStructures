@@ -24,6 +24,14 @@ public class FibonacciTest {
         assertEquals(fibonacciNumber, fibonacci.calculateRecursiveSequence(number));
     }
 
+    @Test
+    public void testFibonnqaciWithInMemoryStorageFor8(){
+        int number = 8;
+        long fibonacciNumber = 21;
+        Map<Integer, Long> inMemory = new HashMap<>(number);
+
+        assertEquals(fibonacciNumber, fibonacci.calculateWithMap(number, inMemory));
+    }
 
 
 }
