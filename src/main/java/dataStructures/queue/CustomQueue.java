@@ -24,6 +24,13 @@ public class CustomQueue <T> implements Queue <T> {
         return head < 0;
     }
 
+    @Override
+    public T peek() {
+        if(isEmpty()){
+            throw new EmptyQueueException("Cannot peek from an empty queue");
+        }
+        return queue[head];
+    }
 
     @Override
     public void enqueue(T value) {
