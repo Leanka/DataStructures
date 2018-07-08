@@ -26,6 +26,33 @@ public class DynamicArrayTest {
         assertEquals(result, array.toString());
     }
 
+    @Test
+    void removeTest() {
+        DynamicArray<Integer> array = createArray(11);
+        array.remove(5);
+        array.remove(0);
+        String result = " 1 2 3 4 6 7 8 9 10";
+        assertEquals(result, array.toString());
+    }
+
+
+
+    @Test
+    void removeTest_LastItem() {
+        DynamicArray<Integer> array = createArray(10);
+        array.remove(9);
+        String result = " 0 1 2 3 4 5 6 7 8";
+        assertEquals(result, array.toString());
+    }
+
+    @Test
+    void removeTest_InvalidItem() {
+        DynamicArray<Integer> array = createArray(10);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.remove(10));
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.remove(-1));
+    }
+
+
 
     private DynamicArray<Integer> createArray(int numOfElements) {
         DynamicArray<Integer> array = new CustomDynamicArray<>(numOfElements);
