@@ -25,6 +25,25 @@ public class CustomQueueTest {
         assertEquals(1, queue.getTail());
     }
 
+    @Test
+    public void testPeekingFirstElement(){
+        Integer firstElement = 7;
+        queue.enqueue(firstElement);
+
+        assertEquals(firstElement, queue.peek());
+    }
+
+    @Test
+    public void testPeekingFromEmptyQueue(){
+        boolean wasExceptionThrown = false;
+        try{
+            queue.peek();
+        }catch (EmptyQueueException exception){
+            wasExceptionThrown = true;
+        }
+
+        assertTrue(wasExceptionThrown);
+    }
 
 
     private void addElementsToQueue(int times){
@@ -32,7 +51,7 @@ public class CustomQueueTest {
             queue.enqueue(times);
         }
     }
-
+    
 
     @Test
     public void testCapacityDoubling(){
