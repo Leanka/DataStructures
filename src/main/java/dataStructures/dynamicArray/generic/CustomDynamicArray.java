@@ -1,7 +1,7 @@
 package dataStructures.dynamicArray.generic;
 
-public class CustomDynamicArray<T> implements DynamicArray <T> {
-    private T[] myArray;
+public class CustomDynamicArray<T> implements DynamicArray <T>{
+    private T [] myArray;
     private int sizeExtensionByElementCount = 1;
     private int lastFreeIndex = 0;
 
@@ -16,58 +16,58 @@ public class CustomDynamicArray<T> implements DynamicArray <T> {
     }
 
     @SuppressWarnings("unchecked")
-    private T[] getGenericArray(int arraySize) {
-        return (T[]) new Object[arraySize];
+    private T[] getGenericArray(int arraySize){
+        return (T []) new Object[arraySize];
     }
 
-    public int length() {
+    public int length(){
         return this.myArray.length;
     }
 
-    public void add(T value) {
-        if (lastFreeIndex < this.myArray.length) {
+    public void add(T value){
+        if(lastFreeIndex < this.myArray.length){
             myArray[lastFreeIndex++] = value;
-        } else {
+        }else{
             extendArraySize();
             add(value);
         }
     }
 
-    private void extendArraySize() {
-        T[] extendedArray = getGenericArray(getExtendedArraySize());
+    private void extendArraySize(){
+        T [] extendedArray = getGenericArray(getExtendedArraySize());
 
         copyFullArrayToExtendedArray(extendedArray);
 
         this.myArray = extendedArray;
     }
 
-    private int getExtendedArraySize() {
+    private int getExtendedArraySize(){
         return this.myArray.length + sizeExtensionByElementCount;
     }
 
-    private void copyFullArrayToExtendedArray(T[] newArray) {
-        for (int index = 0; index < this.myArray.length; index++) {
+    private void copyFullArrayToExtendedArray(T [] newArray){
+        for(int index = 0; index < this.myArray.length; index++){
             newArray[index] = this.myArray[index];
         }
     }
 
-    public void remove(T value) {
-        if (checkIfArrayContainsValue(value)) {
-            T[] newArray = getGenericArray(getShortenArraySize());
+    public void remove(T value){
+        if(checkIfArrayContainsValue(value)){
+            T [] newArray = getGenericArray(getShortenArraySize());
             copyArrayToShortenArray(newArray, value);
             this.myArray = newArray;
             this.lastFreeIndex--;
 
-        } else {
+        }else {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
 
-    private boolean checkIfArrayContainsValue(T value) {
+    private boolean checkIfArrayContainsValue(T value){
         boolean isValuePresent = false;
 
-        for (T myValue : this.myArray) {
-            if (myValue == value) {
+        for(T myValue: this.myArray){
+            if(myValue == value){
                 isValuePresent = true;
                 break;
             }
@@ -76,12 +76,12 @@ public class CustomDynamicArray<T> implements DynamicArray <T> {
         return isValuePresent;
     }
 
-    private int copyArrayToShortenArray(T[] newArray, T valueToOmit) {
+    private int copyArrayToShortenArray(T [] newArray, T valueToOmit){
         int indexOfOmitedElement = -1;
 
 
-        for (int index = 0, newIndex = 0; index < this.myArray.length; index++, newIndex++) {
-            if (this.myArray[index] == valueToOmit) {
+        for(int index = 0, newIndex = 0; index < this.myArray.length; index++, newIndex++){
+            if(this.myArray[index] == valueToOmit){
                 indexOfOmitedElement = index;
                 newIndex--;
                 continue;
@@ -92,7 +92,42 @@ public class CustomDynamicArray<T> implements DynamicArray <T> {
         return indexOfOmitedElement;
     }
 
-    private int getShortenArraySize() {
+    private int getShortenArraySize(){
         return this.myArray.length - sizeExtensionByElementCount;
     }
+
+    public void insert(int index, T value){
+        if(index < this.myArray.length){
+            insertValueIntoArray(index, value);
+        }else {
+            add(value);
+        }
+
+    }
+
+    private void insertValueIntoArray(int newValueIndex, T newValue){
+        T [] extendedArray = getGenericArray(getExtendedArraySize());
+
+        for(int index = 0, postInsertIndex = 0; index < this.myArray.length; index++, postInsertIndex++){
+            if(postInsertIndex == newValueIndex){
+                extendedArray[postInsertIndex] = newValue;
+                index--;
+            }else{
+                extendedArray[postInsertIndex] = this.myArray[index];
+            }
+        }
+
+        this.myArray = extendedArray;
+        this.lastFreeIndex++;
+    }
+
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        for(T value: myArray){
+            builder.append(" ").append(value);
+        }
+
+        return builder.toString();
+    }
+
 }
