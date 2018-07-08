@@ -41,5 +41,16 @@ public class CustomLinkedList<T> implements LinkedList <T>{
         }
     }
 
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
 
+        Node current = head;
+        while (current != null){
+            builder.append(" ").append(current);
+            current = current.getNextNode();
+        }
+
+        return builder.toString();
+    }
 }
