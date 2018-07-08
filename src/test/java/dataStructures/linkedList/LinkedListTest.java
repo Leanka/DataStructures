@@ -77,6 +77,13 @@ public class LinkedListTest {
         assertEquals(expectedListContent, customLinkedList.toString());
     }
 
+    @Test
+    void testPrintingEmptyLinkedList(){
+        LinkedList<Integer> customLinkedList = createLinkedList(0);
+        String expectedOutput = "";
+        assertEquals(expectedOutput, customLinkedList.toString());
+    }
+
     private LinkedList<Integer> createLinkedList(int numOfElements) {
         LinkedList<Integer> customLinkedList = new CustomLinkedList<>();
         for (int i = 0; i < numOfElements; ++i)
