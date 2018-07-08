@@ -45,13 +45,74 @@ public class CustomQueueTest {
         assertTrue(wasExceptionThrown);
     }
 
+    @Test
+    public void testDequeueOneElement(){
+        int numberOfRemovedElements = 1;
+
+        addElementsToQueue(initialCapacity);
+        popElementsFromQueue(numberOfRemovedElements);
+
+        assertEquals(initialCapacity - numberOfRemovedElements, queue.getTail());
+    }
+
+    @Test
+    public void testDequeueMultipleElements(){
+        int numberOfElementsToAdd = 10;
+        int numberOfElementsToRemove = 5;
+
+        addElementsToQueue(numberOfElementsToAdd);
+        popElementsFromQueue(numberOfElementsToRemove);
+        addElementsToQueue(numberOfElementsToAdd);
+        popElementsFromQueue(numberOfElementsToRemove);
+
+        Integer expectedValue = 9;
+        assertEquals(expectedValue, queue.peek());
+    }
+
+    @Test
+    public void testIfDequeueReturnsFirstElement(){
+        int numberOfRemovedElements = 1;
+
+        addElementsToQueue(initialCapacity);
+
+        Integer expectedValue = initialCapacity - numberOfRemovedElements;
+        assertEquals(expectedValue, queue.dequeue());
+    }
+
+    @Test
+    public void testIsQueueEmptyAfterRemovingAllElements(){
+        addElementsToQueue(initialCapacity);
+        popElementsFromQueue(initialCapacity);
+
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
+    public void testDequeueMoreElementsThanQueueContains(){
+        addElementsToQueue(initialCapacity);
+        popElementsFromQueue(initialCapacity);
+
+        boolean wasExceptionThrown = false;
+        try{
+            queue.dequeue();
+        }catch (EmptyQueueException exception){
+            wasExceptionThrown = true;
+        }
+
+        assertTrue(wasExceptionThrown);
+    }
 
     private void addElementsToQueue(int times){
         while (times-- > 0){
             queue.enqueue(times);
         }
     }
-    
+
+    private void popElementsFromQueue(int times){
+        while(times-- > 0){
+            queue.dequeue();
+        }
+    }
 
     @Test
     public void testCapacityDoubling(){
@@ -80,6 +141,4 @@ public class CustomQueueTest {
         }
         return newCapacity;
     }
-
-
 }
