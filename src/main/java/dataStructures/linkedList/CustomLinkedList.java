@@ -16,5 +16,11 @@ public class CustomLinkedList<T> implements LinkedList <T>{
         }
     }
 
-    
+    @Override
+    public void  prepend(T data){
+        Node newHead = new Node(data);
+        newHead.setNextNode(head);
+        head = newHead;
+    }
+
 }
