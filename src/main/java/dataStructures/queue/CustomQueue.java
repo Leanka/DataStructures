@@ -45,6 +45,29 @@ public class CustomQueue <T> implements Queue <T> {
         }
     }
 
+    public int getTail(){
+        return this.tail;
+    }
+
+    @Override
+    public T dequeue() {
+        if(isEmpty()){
+            throw new EmptyQueueException("Cannot dequeue an empty queue");
+        }
+
+        T removedValue = queue[head];
+        tail--;
+
+        if(tail == 0){
+            head--;
+        }else{
+            for (int i = 1; i < tail; i++) {
+                queue[i - 1] = queue[i];
+            }
+        }
+
+        return removedValue;
+    }
 
     private void extendCapacity(){
         int doubledCapacity = getCapacity() * 2;
