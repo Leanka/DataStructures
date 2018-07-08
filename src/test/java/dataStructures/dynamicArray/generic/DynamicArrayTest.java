@@ -35,7 +35,24 @@ public class DynamicArrayTest {
         assertEquals(result, array.toString());
     }
 
+    @Test
+    void addAndRemoveMultipleItemsTest() {
+        DynamicArray<String> array = new CustomDynamicArray <String>();
+        array.add("a");
+        array.add("b");
+        array.add("c");
+        array.add("d");
+        array.remove("c");
+        array.remove("d");
+        array.add("e");
+        array.add("f");
 
+        String result = " a b e f";
+        int expectedLength = 4;
+
+        assertEquals(result, array.toString());
+        assertEquals(expectedLength, array.length());
+    }
 
     @Test
     void removeTest_LastItem() {
@@ -51,8 +68,7 @@ public class DynamicArrayTest {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.remove(10));
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.remove(-1));
     }
-
-
+    
 
     private DynamicArray<Integer> createArray(int numOfElements) {
         DynamicArray<Integer> array = new CustomDynamicArray<>(numOfElements);
