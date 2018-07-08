@@ -23,4 +23,23 @@ public class CustomLinkedList<T> implements LinkedList <T>{
         head = newHead;
     }
 
+    @Override
+    public void delete(T data){
+        if(head == null){
+            return;
+        }else if(head.getData() == data){
+            head = head.getNextNode();
+        }else {
+            Node current = head;
+            while (current.getNextNode() != null) {
+                if (current.getNextNode().getData() == data) {
+                    current.setNextNode(current.getNextNode().getNextNode());
+                    break;
+                }
+                current = current.getNextNode();
+            }
+        }
+    }
+
+
 }
