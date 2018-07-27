@@ -24,6 +24,12 @@ public class GenericDynamicArrayTest {
         new GenericDynamicArray<Integer>();
     }
 
+    @Test
+    void DynamicIntArrayNoInitialSizeTest() {
+        int initialSize = 0;
+        DynamicArray array = new GenericDynamicArray<Integer>();
+        assertEquals(initialSize, array.length());
+    }
 
     @Test
     void addTest() {
