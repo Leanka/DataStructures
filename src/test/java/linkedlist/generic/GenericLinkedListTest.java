@@ -6,19 +6,19 @@ import static org.junit.Assert.*;
 public class GenericLinkedListTest {
 
     @Test
-    void classExistanceTest(){
+    public void classExistanceTest(){
         new GenericLinkedList<String>();
     }
 
     @Test
-    void appendTest() {
+    public void appendTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         String expectedListContent = " 0 1 2 3 4 5 6 7 8 9";
         assertEquals(expectedListContent, linkedList.toString());
     }
 
     @Test
-    void prependTest() {
+    public void prependTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         linkedList.prepend(33);
         linkedList.prepend(114);
@@ -27,7 +27,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void prependOnEmptyLinkedListTest() {
+    public void prependOnEmptyLinkedListTest() {
         LinkedList <Integer> linkedList = new GenericLinkedList();
         linkedList.prepend(33);
         linkedList.prepend(114);
@@ -36,7 +36,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void removeElementTest() {
+    public void removeElementTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         linkedList.delete(5);
         linkedList.delete(2);
@@ -45,7 +45,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void removeElementOnEmptyLinkedListTest() {
+    public void removeElementOnEmptyLinkedListTest() {
         LinkedList <Integer> linkedList = new GenericLinkedList();
         linkedList.delete(5);
         linkedList.delete(2);
@@ -54,7 +54,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void removeFirstElementTest() {
+    public void removeFirstElementTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         linkedList.delete(0);
         String expectedListContent = " 1 2 3 4 5 6 7 8 9";
@@ -62,7 +62,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void removeLastElementTest() {
+    public void removeLastElementTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         linkedList.delete(9);
         String expectedListContent = " 0 1 2 3 4 5 6 7 8";
@@ -70,7 +70,7 @@ public class GenericLinkedListTest {
     }
 
     @Test
-    void removeElementThatNotExistsTest() {
+    public void removeElementThatNotExistsTest() {
         LinkedList <Integer> linkedList = createLinkedList(10);
         linkedList.delete(15);
         String expectedListContent = " 0 1 2 3 4 5 6 7 8 9";
