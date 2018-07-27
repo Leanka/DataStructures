@@ -1,4 +1,4 @@
-package dynamicArray;
+package dynamicArray.generic;
 
 public interface DynamicArray <T> {
     void add(T value);
