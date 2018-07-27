@@ -1,7 +1,5 @@
 package dynamicArray.generic;
 
-import dynamicArray.DynamicArray;
-
 public class GenericDynamicArray <T> implements DynamicArray <T>{
     private T [] myArray;
     private int sizeExtensionByElementCount = 1;

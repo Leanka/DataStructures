@@ -1,6 +1,5 @@
 package dynamicArray.generic;
 
-import dynamicArray.DynamicArray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
