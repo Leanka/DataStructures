@@ -6,9 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GenericDynamicArrayTest {
+
     @Test
     void DynamicIntArrayTest_WithInitialSize() {
         new GenericDynamicArray<Integer>(15);
+    }
+
+    @Test
+    void DynamicIntArrayInitialSizeTest() {
+        int initialSize = 15;
+        DynamicArray array = new GenericDynamicArray<Integer>(initialSize);
+        assertEquals(initialSize, array.length());
     }
 
     @Test
