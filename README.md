@@ -31,7 +31,7 @@ Project is divided into three parts, listed below:
 - queue
 
 ***
-#Future plans
+# Future plans
 Here is a list of what I'd like to implement in future:
 
 - quick sort
